@@ -37,20 +37,9 @@
         
         document.getElementById('scene-container').appendChild(renderer.domElement);
 
-        // Create About Me cube
-        const aboutMeCube = createCube(0xff0000);
-        aboutMeCube.position.set(-2, 0, 0);
-        scene.add(aboutMeCube);
-
-        // Create Projects cube
-        const projectsCube = createCube(0x0000ff);
-        projectsCube.position.set(0, 0, 0);
-        scene.add(projectsCube);
-
-        // Create Blog cube
-        const blogCube = createCube(0x00ff00);
-        blogCube.position.set(2, 0, 0);
-        scene.add(blogCube);
+        // Create cube
+        const cube = createCube(0xff0000);
+        scene.add(cube);
 
         // Set up camera position
         camera.position.z = 5;
@@ -59,15 +48,9 @@
         const animate = () => {
             requestAnimationFrame(animate);
 
-            // Rotate cubes
-            aboutMeCube.rotation.x += 0.01;
-            aboutMeCube.rotation.y += 0.01;
-
-            projectsCube.rotation.x += 0.01;
-            projectsCube.rotation.y += 0.01;
-
-            blogCube.rotation.x += 0.01;
-            blogCube.rotation.y += 0.01;
+            // Rotate cube
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
 
             renderer.render(scene, camera);
         };
