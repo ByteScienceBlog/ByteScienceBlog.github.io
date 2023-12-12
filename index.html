@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loading Animation</title>
+    <title>Futuristic Loading Bars</title>
     <style>
         body {
             margin: 0;
@@ -11,27 +11,35 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: #f0f0f0;
+            background-color: #0e0e0e;
         }
 
-        .spinner {
-            border: 8px solid #3498db;
-            border-top: 8px solid #3498db;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
+        .loading-bars {
+            display: flex;
+            justify-content: space-between;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .loading-bar {
+            width: 20px;
+            height: 80px;
+            background-color: #3498db;
+            margin: 0 5px;
+            animation: pulse 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(2); }
         }
     </style>
 </head>
 <body>
 
-    <div class="spinner"></div>
+    <div class="loading-bars">
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+    </div>
 
 </body>
 </html>
