@@ -6,47 +6,8 @@
     <title>ByteScienceBlog</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #0d0d0d;
-            color: #fff;
-            margin: 20px;
-            text-align: center;
-        }
-
-        header {
-            padding: 20px;
-            background-color: #222;
-        }
-
-        header h1 {
-            color: #61dafb; /* React Blue */
-        }
-
-        main {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        section {
-            max-width: 300px;
-            padding: 20px;
-            border: 1px solid #333;
-            border-radius: 8px;
-            background-color: #333;
-            transition: background-color 0.3s;
-        }
-
-        section:hover {
-            background-color: #555;
-        }
-
-        footer {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #222;
+            margin: 0;
+            overflow: hidden;
         }
     </style>
 </head>
@@ -54,28 +15,40 @@
 
     <header>
         <h1>ByteScienceBlog</h1>
-        <p>Welcome to my GitHub Pages website with a touch of science fiction!</p>
+        <p>Welcome to my GitHub Pages website with a touch of 3D animation!</p>
     </header>
 
-    <main>
-        <section>
-            <h2>About Me</h2>
-            <p>Explorer of the unknown, tech enthusiast, and science fiction aficionado.</p>
-            <img src="about_me.jpg" alt="About Me Image">
-        </section>
+    <script src="https://threejs.org/build/three.js"></script>
+    <script>
+        // Set up scene
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
 
-        <section>
-            <h2>Projects</h2>
-            <p>Discover my groundbreaking projects that push the boundaries of science and technology.</p>
-            <img src="projects.jpg" alt="Projects Image">
-        </section>
+        // Create cube
+        const geometry = new THREE.BoxGeometry();
+        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+        const cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
 
-        <section>
-            <h2>Blog</h2>
-            <p>Dive into the realms of science fiction with my latest blog posts and musings.</p>
-            <img src="blog.jpg" alt="Blog Image">
-        </section>
-    </main>
+        // Set up camera position
+        camera.position.z = 5;
+
+        // Animation loop
+        const animate = () => {
+            requestAnimationFrame(animate);
+
+            // Rotate cube
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+
+            renderer.render(scene, camera);
+        };
+
+        animate();
+    </script>
 
     <footer>
         <p>&copy; 2023 ByteScienceBlog. Powered by GitHub Pages.</p>
