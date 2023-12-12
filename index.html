@@ -24,14 +24,26 @@
             z-index: 1000;
         }
 
+        .loading-bar-container {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            color: #fff;
+        }
+
         .loading-bar {
             width: 1%;
             height: 10px;
             background: #4af7ff;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            animation: loadingAnimation 2s ease-in-out forwards;
+            position: relative;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        .loading-text {
+            display: inline-block;
         }
 
         @keyframes loadingAnimation {
@@ -106,7 +118,10 @@
 <body>
 
     <div class="loading-container">
-        <div class="loading-bar"></div>
+        <div class="loading-bar-container">
+            <div class="loading-bar"></div>
+            <div class="loading-text">1%</div>
+        </div>
     </div>
 
     <div class="content">
@@ -152,12 +167,30 @@
     </div>
 
     <script>
+        const loadingBar = document.querySelector('.loading-bar');
+        const loadingText = document.querySelector('.loading-text');
+
+        let progress = 1;
+
+        function updateLoading() {
+            loadingBar.style.width = progress + '%';
+            loadingText.innerText = progress + '%';
+        }
+
+        function simulateLoading() {
+            if (progress < 100) {
+                progress += 1;
+                updateLoading();
+                setTimeout(simulateLoading, 20); // Adjust the delay as needed
+            } else {
+                // Hide loading container and show content
+                document.querySelector('.loading-container').style.display = 'none';
+                document.querySelector('.content').style.display = 'block';
+            }
+        }
+
         // Simulate page load delay
-        setTimeout(() => {
-            // Hide loading container and show content
-            document.querySelector('.loading-container').style.display = 'none';
-            document.querySelector('.content').style.display = 'block';
-        }, 2000); // Adjust the delay as needed
+        setTimeout(simulateLoading, 2000); // Adjust the delay as needed
     </script>
 
 </body>
