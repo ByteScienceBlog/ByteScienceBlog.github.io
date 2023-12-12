@@ -3,43 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matrix Code Loading</title>
+    <title>Rocket Animation</title>
     <style>
         body {
             margin: 0;
+            overflow: hidden;
+        }
+
+        .rocket-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #000;
-            overflow: hidden;
-            color: #00ff00;
+            align-items: flex-end;
+            justify-content: flex-start;
         }
 
-        .matrix-code {
-            font-family: 'Courier New', monospace;
-            font-size: 20px;
-            white-space: nowrap;
-            overflow: hidden;
-            animation: animateMatrixCode 5s linear infinite;
+        .rocket {
+            width: 50px;
+            height: 100px;
+            background-color: #4af7ff;
+            position: relative;
+            animation: flyRocket 5s linear infinite;
         }
 
-        @keyframes animateMatrixCode {
+        @keyframes flyRocket {
             0% {
-                transform: translateY(100%);
+                transform: translate(0, 0);
             }
             100% {
-                transform: translateY(-100%);
+                transform: translate(calc(100vw - 50px), calc(0 - 100vh + 100px));
             }
+        }
+
+        .content {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        body.loaded .content {
+            opacity: 1;
         }
     </style>
 </head>
 <body>
 
-    <div class="matrix-code">
-        <!-- Insert your matrix code text here -->
-        Loading...
+    <div class="rocket-container">
+        <div class="rocket"></div>
     </div>
+
+    <div class="content">
+        <header>
+            <h1>Your Website Name</h1>
+        </header>
+
+        <!-- Add your other content here -->
+
+        <footer>
+            <p>&copy; 2023 Your Website. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        window.onload = function() {
+            document.body.classList.add('loaded');
+        };
+    </script>
 
 </body>
 </html>
