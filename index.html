@@ -7,8 +7,10 @@
     <style>
         body {
             margin: 0;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Courier New', monospace;
             overflow: hidden;
+            background-color: #000;
+            color: #00ff00;
         }
 
         .loading-container {
@@ -17,29 +19,46 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #333;
+            background-color: #000;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
+            color: #00ff00;
             opacity: 1;
             z-index: 9999;
             transition: opacity 0.5s ease-out;
         }
 
-        .loading-bar {
-            width: 0;
-            height: 10px;
-            background-color: #4af7ff;
-            animation: loadingAnimation 2s linear infinite;
+        .loading-text {
+            font-size: 20px;
         }
 
-        @keyframes loadingAnimation {
+        .code-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .code-rain span {
+            position: absolute;
+            font-size: 16px;
+            line-height: 16px;
+            white-space: nowrap;
+            opacity: 0;
+            animation: codeRainAnimation 1.5s linear infinite;
+        }
+
+        @keyframes codeRainAnimation {
             0% {
-                transform: translateX(-100%);
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
             }
             100% {
-                transform: translateX(100%);
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 1;
             }
         }
 
@@ -60,7 +79,8 @@
 <body>
 
     <div class="loading-container">
-        <div class="loading-bar"></div>
+        <div class="loading-text">Loading...</div>
+        <div class="code-rain"></div>
     </div>
 
     <div class="content">
@@ -78,7 +98,22 @@
     <script>
         window.onload = function() {
             document.body.classList.add('loaded');
+
+            // Generate code rain elements
+            const codeRainContainer = document.querySelector('.code-rain');
+            for (let i = 0; i < 100; i++) {
+                const span = document.createElement('span');
+                span.textContent = getRandomCode();
+                span.style.left = `${Math.random() * 100}vw`;
+                span.style.animationDuration = `${Math.random() * 2 + 1}s`;
+                codeRainContainer.appendChild(span);
+            }
         };
+
+        function getRandomCode() {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+=<>?/[]{}|';
+            return characters.charAt(Math.floor(Math.random() * characters.length));
+        }
     </script>
 
 </body>
