@@ -8,6 +8,30 @@
         body {
             margin: 0;
             overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        header {
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #4af7ff;
+        }
+
+        #scene-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
         }
     </style>
 </head>
@@ -15,7 +39,7 @@
 
     <header>
         <h1>ByteScienceBlog</h1>
-        <p>Welcome to my GitHub Pages website with a touch of 3D animation!</p>
+        <p>Explore the Future of Science and Technology!</p>
     </header>
 
     <div id="scene-container"></div>
@@ -26,38 +50,27 @@
 
     <script src="https://threejs.org/build/three.js"></script>
     <script>
-        // Set up scene
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
-        
-        // Set the background color to white
-        renderer.setClearColor(0xffffff);
-        
+        renderer.setClearColor(0x000000);
         document.getElementById('scene-container').appendChild(renderer.domElement);
 
-        // Create cube
-        const cube = createCube(0xff0000);
+        const cube = createCube(0x4af7ff);
         scene.add(cube);
 
-        // Set up camera position
         camera.position.z = 5;
 
-        // Animation loop
         const animate = () => {
             requestAnimationFrame(animate);
-
-            // Rotate cube
-            cube.rotation.x += 0.01;
-            cube.rotation.y += 0.01;
-
+            cube.rotation.x += 0.005;
+            cube.rotation.y += 0.005;
             renderer.render(scene, camera);
         };
 
         animate();
 
-        // Create cube function
         function createCube(color) {
             const geometry = new THREE.BoxGeometry();
             const material = new THREE.MeshPhongMaterial({ color });
