@@ -3,87 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website</title>
+    <title>ByteScience</title>
     <style>
         body {
-            font-family: 'Helvetica', sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f8f8f8;
+            font-family: 'Arial', sans-serif;
         }
 
         header {
-            background-color: #141414;
-            color: white;
+            background-color: #f8f8f8;
             padding: 20px;
             text-align: center;
         }
 
         nav {
             display: flex;
-            justify-content: center;
-            background-color: #1f1f1f;
-            padding: 10px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease-in-out;
-        }
-
-        nav a:hover {
-            background-color: #4d4d4d;
+            justify-content: space-around;
+            background-color: #000;
+            color: #fff;
+            padding: 10px 0;
         }
 
         main {
-            padding: 40px;
-        }
-
-        section {
-            text-align: center;
-            padding: 40px 0;
+            padding: 20px;
         }
 
         footer {
-            background-color: #1f1f1f;
-            color: white;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .hero-section {
+            background-image: url('path/to/your/image.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .hero-section h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .product-section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .product-card {
+            width: 300px;
+            margin: 20px;
             text-align: center;
             padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Your Website</h1>
-        <p>Beautifully Crafted Website</p>
+        <h1>ByteScience</h1>
     </header>
 
     <nav>
         <a href="#">Home</a>
         <a href="#">Products</a>
-        <a href="#">Services</a>
+        <a href="#">About</a>
         <a href="#">Contact</a>
     </nav>
 
-    <main>
-        <section>
-            <h2>Welcome to Our Website</h2>
-            <p>Discover the latest in innovation and technology.</p>
-        </section>
+    <div class="hero-section">
+        <h1>Welcome to ByteScience</h1>
+        <p>Explore the Future of Science and Technology</p>
+    </div>
 
-        <section>
-            <h2>Featured Products</h2>
-            <!-- Add your product images and descriptions here -->
-        </section>
+    <main>
+        <div class="product-section">
+            <div class="product-card">
+                <h2>Product 1</h2>
+                <p>Description of Product 1.</p>
+                <button>Learn More</button>
+            </div>
+            <div class="product-card">
+                <h2>Product 2</h2>
+                <p>Description of Product 2.</p>
+                <button>Learn More</button>
+            </div>
+            <div class="product-card">
+                <h2>Product 3</h2>
+                <p>Description of Product 3.</p>
+                <button>Learn More</button>
+            </div>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2023 Your Website. All rights reserved.</p>
+        <p>&copy; 2023 ByteScience. All Rights Reserved.</p>
     </footer>
 
 </body>
