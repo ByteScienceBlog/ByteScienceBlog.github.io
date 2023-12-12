@@ -27,9 +27,9 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        // Create cube
+        // Create cube with pink, purple, and black color
         const geometry = new THREE.BoxGeometry();
-        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+        const material = new THREE.MeshBasicMaterial({ color: 0xe84a5f }); // Pink color
         const cube = new THREE.Mesh(geometry, material);
         scene.add(cube);
 
