@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futuristic Loading Bars</title>
+    <title>Matrix Code Loading</title>
     <style>
         body {
             margin: 0;
@@ -11,34 +11,34 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: #0e0e0e;
+            background-color: #000;
+            overflow: hidden;
+            color: #00ff00;
         }
 
-        .loading-bars {
-            display: flex;
-            justify-content: space-between;
+        .matrix-code {
+            font-family: 'Courier New', monospace;
+            font-size: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: animateMatrixCode 5s linear infinite;
         }
 
-        .loading-bar {
-            width: 20px;
-            height: 80px;
-            background-color: #3498db;
-            margin: 0 5px;
-            animation: pulse 1s ease-in-out infinite alternate;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scaleY(1); }
-            50% { transform: scaleY(2); }
+        @keyframes animateMatrixCode {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="loading-bars">
-        <div class="loading-bar"></div>
-        <div class="loading-bar"></div>
-        <div class="loading-bar"></div>
+    <div class="matrix-code">
+        <!-- Insert your matrix code text here -->
+        Loading...
     </div>
 
 </body>
