@@ -9,7 +9,6 @@
             margin: 0;
             font-family: 'Arial', sans-serif;
             overflow: hidden;
-            position: relative;
         }
 
         .loading-container {
@@ -26,12 +25,6 @@
             opacity: 1;
             z-index: 9999;
             transition: opacity 0.5s ease-out;
-        }
-
-        .loading-text {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         .rocket {
@@ -70,10 +63,8 @@
 <body>
 
     <div class="loading-container">
-        <div class="loading-text">
-            <div class="rocket"></div>
-            <p>Loading...</p>
-        </div>
+        <div class="rocket"></div>
+        <p>Loading...</p>
     </div>
 
     <div class="content">
