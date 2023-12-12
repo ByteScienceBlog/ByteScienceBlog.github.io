@@ -3,33 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ByteScienceBlog</title>
+    <title>Your Website</title>
     <style>
         body {
+            font-family: 'Helvetica', sans-serif;
             margin: 0;
-            overflow: hidden;
-            font-family: 'Arial', sans-serif;
-            background-color: #000;
-            color: #fff;
+            padding: 0;
+            background-color: #f8f8f8;
         }
 
         header {
+            background-color: #141414;
+            color: white;
             padding: 20px;
             text-align: center;
         }
 
-        h1, h2 {
-            color: #4af7ff;
-        }
-
-        #scene-container {
+        nav {
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 80vh;
+            background-color: #1f1f1f;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            background-color: #4d4d4d;
+        }
+
+        main {
+            padding: 40px;
+        }
+
+        section {
+            text-align: center;
+            padding: 40px 0;
         }
 
         footer {
+            background-color: #1f1f1f;
+            color: white;
             text-align: center;
             padding: 20px;
         }
@@ -38,46 +59,32 @@
 <body>
 
     <header>
-        <h1>ByteScienceBlog</h1>
-        <p>Explore the Future of Science and Technology!</p>
+        <h1>Your Website</h1>
+        <p>Beautifully Crafted Website</p>
     </header>
 
-    <div id="scene-container"></div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Welcome to Our Website</h2>
+            <p>Discover the latest in innovation and technology.</p>
+        </section>
+
+        <section>
+            <h2>Featured Products</h2>
+            <!-- Add your product images and descriptions here -->
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2023 ByteScienceBlog. Powered by GitHub Pages.</p>
+        <p>&copy; 2023 Your Website. All rights reserved.</p>
     </footer>
-
-    <script src="https://threejs.org/build/three.js"></script>
-    <script>
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setClearColor(0x000000);
-        document.getElementById('scene-container').appendChild(renderer.domElement);
-
-        const cube = createCube(0x4af7ff);
-        scene.add(cube);
-
-        camera.position.z = 5;
-
-        const animate = () => {
-            requestAnimationFrame(animate);
-            cube.rotation.x += 0.005;
-            cube.rotation.y += 0.005;
-            renderer.render(scene, camera);
-        };
-
-        animate();
-
-        function createCube(color) {
-            const geometry = new THREE.BoxGeometry();
-            const material = new THREE.MeshPhongMaterial({ color });
-            const cube = new THREE.Mesh(geometry, material);
-            return cube;
-        }
-    </script>
 
 </body>
 </html>
