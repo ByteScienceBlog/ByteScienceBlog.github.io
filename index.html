@@ -18,6 +18,12 @@
         <p>Welcome to my GitHub Pages website with a touch of 3D animation!</p>
     </header>
 
+    <div id="scene-container"></div>
+
+    <footer>
+        <p>&copy; 2023 ByteScienceBlog. Powered by GitHub Pages.</p>
+    </footer>
+
     <script src="https://threejs.org/build/three.js"></script>
     <script>
         // Set up scene
@@ -29,7 +35,7 @@
         // Set the background color to white
         renderer.setClearColor(0xffffff);
         
-        document.body.appendChild(renderer.domElement);
+        document.getElementById('scene-container').appendChild(renderer.domElement);
 
         // Create About Me cube
         const aboutMeCube = createCube(0xff0000);
@@ -76,10 +82,6 @@
             return cube;
         }
     </script>
-
-    <footer>
-        <p>&copy; 2023 ByteScienceBlog. Powered by GitHub Pages.</p>
-    </footer>
 
 </body>
 </html>
