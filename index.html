@@ -24,26 +24,26 @@
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
         
         // Set the background color to white
         renderer.setClearColor(0xffffff);
         
-        renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
         // Create About Me cube
         const aboutMeCube = createCube(0xff0000);
-        aboutMeCube.position.x = -2;
+        aboutMeCube.position.set(-2, 0, 0);
         scene.add(aboutMeCube);
 
         // Create Projects cube
         const projectsCube = createCube(0x0000ff);
-        projectsCube.position.x = 0;
+        projectsCube.position.set(0, 0, 0);
         scene.add(projectsCube);
 
         // Create Blog cube
         const blogCube = createCube(0x00ff00);
-        blogCube.position.x = 2;
+        blogCube.position.set(2, 0, 0);
         scene.add(blogCube);
 
         // Set up camera position
