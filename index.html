@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Glitch Loading</title>
+    <title>Techy Gradient Loading</title>
     <style>
         body {
             margin: 0;
@@ -11,36 +11,29 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: #000;
-            color: #0f0;
-            font-family: 'Courier New', monospace;
+            background: linear-gradient(45deg, #3498db, #4af7ff);
+            color: #fff;
+            font-family: 'Arial', sans-serif;
         }
 
-        .glitch-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .techy-gradient {
             font-size: 30px;
-            white-space: nowrap;
-            animation: glitch 2s linear infinite;
+            animation: gradientFade 2s ease-in-out infinite alternate;
         }
 
-        @keyframes glitch {
+        @keyframes gradientFade {
             0%, 100% {
-                transform: translateX(0);
+                opacity: 0.8;
             }
-            20%, 40%, 60%, 80% {
-                transform: translateX(-5px);
-            }
-            30%, 50%, 70% {
-                transform: translateX(5px);
+            50% {
+                opacity: 1;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="glitch-container">
+    <div class="techy-gradient">
         Loading...
     </div>
 
