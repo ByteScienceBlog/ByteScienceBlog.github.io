@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HUD Loading</title>
+    <title>Welcome to ByteScience</title>
     <style>
         body {
             margin: 0;
@@ -11,49 +11,36 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: #0e0e0e;
+            background-color: #f8f8f8;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #333;
         }
 
-        .hud-loading {
-            display: flex;
-            gap: 10px;
-            font-family: 'Arial', sans-serif;
+        .apple-welcome {
+            text-align: center;
         }
 
-        .loading-dot {
-            width: 20px;
-            height: 20px;
-            background-color: #4af7ff;
-            border-radius: 50%;
-            animation: pulse 1s ease-in-out infinite alternate;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.5); }
+        .apple-logo {
+            width: 100px;
+            height: auto;
         }
 
         .loading-text {
-            font-size: 24px;
-            color: #4af7ff;
-            letter-spacing: 2px;
-            animation: blink 1s linear infinite;
+            margin-top: 20px;
+            font-size: 18px;
         }
 
-        @keyframes blink {
-            0%, 50%, 100% { opacity: 1; }
-            25%, 75% { opacity: 0; }
-        }
+        /* Add your own loading animation or spinner styles here */
     </style>
 </head>
 <body>
 
-    <div class="hud-loading">
-        <div class="loading-dot"></div>
-        <div class="loading-dot"></div>
-        <div class="loading-dot"></div>
-        <div class="loading-text">Loading...</div>
+    <div class="apple-welcome">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/505px-Apple_logo_black.svg.png" alt="Apple Logo" class="apple-logo">
+        <div class="loading-text">Welcome to ByteScience</div>
     </div>
+
+    <!-- Add your own loading animation or spinner here -->
 
 </body>
 </html>
