@@ -3,22 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to ByteScienceBlog</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>ByteScience</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .loading-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loading-bar-container {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            color: #fff;
+        }
+
+        .loading-bar {
+            width: 1%;
+            height: 10px;
+            background: #4af7ff;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .loading-text {
+            display: block;
+        }
+
+        @keyframes loadingAnimation {
+            0% {
+                width: 1%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        .content {
+            display: none;
+        }
+
+        header {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #000;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .hero-section {
+            background-image: url('path/to/your/image.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .hero-section h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .product-section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .product-card {
+            width: 300px;
+            margin: 20px;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 105, 180, 0.8); /* Pink background with transparency */
+            color: #fff;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        #welcomePopup {
+            background-color: #fff;
+            color: #4af7ff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
 </head>
 <body>
 
     <div class="loading-container">
-        <div class="loading"></div>
-        <div id="loadingText">Loading...</div>
-        <div id="loadingPercentage">0%</div>
+        <div class="loading-bar-container">
+            <div class="loading-text">1%</div>
+            <div class="loading-bar"></div>
+        </div>
+    </div>
+
+    <div class="content">
+        <header>
+            <h1>ByteScience</h1>
+        </header>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+
+        <div class="hero-section">
+            <h1>Welcome to ByteScience</h1>
+            <p>Explore the Future of Science and Technology</p>
+        </div>
+
+        <main>
+            <div class="product-section">
+                <div class="product-card">
+                    <h2>Product 1</h2>
+                    <p>Description of Product 1.</p>
+                    <button>Learn More</button>
+                </div>
+                <div class="product-card">
+                    <h2>Product 2</h2>
+                    <p>Description of Product 2.</p>
+                    <button>Learn More</button>
+                </div>
+                <div class="product-card">
+                    <h2>Product 3</h2>
+                    <p>Description of Product 3.</p>
+                    <button>Learn More</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 ByteScience. All Rights Reserved.</p>
+        </footer>
     </div>
 
     <div class="popup" id="welcomePopup">
         <h1>Hey, Welcome to ByteScienceBlog!</h1>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        const loadingBar = document.querySelector('.loading-bar');
+        const loadingText = document.querySelector('.loading-text');
+
+        let progress = 1;
+
+        function updateLoading() {
+            loadingBar.style.width = progress + '%';
+            loadingText.innerText = progress + '%';
+        }
+
+        function simulateLoading() {
+            if (progress < 100) {
+                progress += 1;
+                updateLoading();
+                setTimeout(simulateLoading, 20); // Adjust the delay as needed
+            } else {
+                // Hide loading container and show content
+                document.querySelector('.loading-container').style.display = 'none';
+                document.querySelector('.content').style.display = 'block';
+
+                // Show welcome pop-up after loading
+                const welcomePopup = document.getElementById('welcomePopup');
+                welcomePopup.style.display = 'flex';
+            }
+        }
+
+        // Simulate page load delay
+        setTimeout(simulateLoading, 2000); // Adjust the delay as needed
+    </script>
 
 </body>
 </html>
