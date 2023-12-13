@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Techy Gradient Loading</title>
+    <title>HUD Loading</title>
     <style>
         body {
             margin: 0;
@@ -11,30 +11,48 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background: linear-gradient(45deg, #3498db, #4af7ff);
-            color: #fff;
+            background-color: #0e0e0e;
+        }
+
+        .hud-loading {
+            display: flex;
+            gap: 10px;
             font-family: 'Arial', sans-serif;
         }
 
-        .techy-gradient {
-            font-size: 30px;
-            animation: gradientFade 2s ease-in-out infinite alternate;
+        .loading-dot {
+            width: 20px;
+            height: 20px;
+            background-color: #4af7ff;
+            border-radius: 50%;
+            animation: pulse 1s ease-in-out infinite alternate;
         }
 
-        @keyframes gradientFade {
-            0%, 100% {
-                opacity: 0.8;
-            }
-            50% {
-                opacity: 1;
-            }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+        }
+
+        .loading-text {
+            font-size: 24px;
+            color: #4af7ff;
+            letter-spacing: 2px;
+            animation: blink 1s linear infinite;
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-    <div class="techy-gradient">
-        Loading...
+    <div class="hud-loading">
+        <div class="loading-dot"></div>
+        <div class="loading-dot"></div>
+        <div class="loading-dot"></div>
+        <div class="loading-text">Loading...</div>
     </div>
 
 </body>
