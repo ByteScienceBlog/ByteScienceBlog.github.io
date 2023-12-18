@@ -1,37 +1,31 @@
-body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
+/* Add these styles to your existing styles.css */
+
+nav {
+    margin-top: 10px;
 }
 
-header, main, footer {
-    padding: 20px;
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
+nav ul li {
+    margin-right: 20px;
 }
 
-main {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.topic {
-    margin-bottom: 40px;
-}
-
-h2 {
+nav a {
+    text-decoration: none;
     color: #333;
+    font-weight: bold;
 }
 
-p {
-    color: #666;
+nav a:hover {
+    color: #007bff;
 }
 
-footer {
-    background-color: #f8f8f8;
-    text-align: center;
+.intro {
+    margin-bottom: 20px;
 }
+
+/* Add more styles as needed */
